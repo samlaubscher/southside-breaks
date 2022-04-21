@@ -1,0 +1,9 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: rgb(14, 14, 14);
+    /* background-image: url("../../media/overlapping-hexagons.svg"); */
+    color: #2cac05;
+}
