@@ -5,3 +5,4 @@ venv/
 .env
 .vscode/
 !.vscode/settings.json
+.dccache

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock page_header %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="row">
+          <div class="col-8 offset-2">
+              <h2 class="text-center my-3">Inbox</h2>
+          </div>
+          <div class="col-12 col-lg-8 offset-lg-2">
+
+            <a href="#" style="float:right;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">Send new message</a>
+            <a href="#" style="float:left;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">View sent messages</a>
+            <table style="width:100%;">
+                <tr>
+                  <th class="text-center">Message</th>
+                  <th class="text-center" style="width:25%;">From</th>
+                  <th class="text-center">Date recieved</th>
+                </tr>
+
+                {% if not direct_messages %}
+                    </table>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <hr>
+                            <p class="text-center text-muted ">Inbox empty!</p>
+                            <hr>
+                        </div>
+                    </div>
+                {% else %}
+                    {% for message in direct_messages %}
+                        {% if forloop.counter|divisibleby:2 %}    
+                            <tr style="background-color:#0947472c;">
+                        {% else %}
+                        <tr style="background-color:#07373d5b;">
+                        {% endif %}
+                                <td class="px-2">
+                                    <a href="{% url 'view_message' message.id %}" class="thread-link">
+                                        {% if not message.read %}
+                                            <strong style="color:#88ed88">> {{ message.body|truncatechars:20 }}</strong>
+                                        {% else %}
+                                            > {{ message.body|truncatechars:20 }}
+                                        {% endif %}
+                                    </a>
+                                </td>
+                                <td class="px-2 text-center">
+                                    <a href="{% url 'view_message' message.id %}" class="thread-link">
+                                        {% if not message.read %}
+                                            <strong style="color:#88ed88">{{ message.sender }}</strong>
+                                        {% else %}
+                                            {{ message.sender }}
+                                        {% endif %}
+                                    </a>
+                                </td>
+                                <td class="px-2 text-center"><small><em>
+                                    {% if not message.read %}
+                                            <strong style="color:#88ed88">{{ message.whensent }} [{{ message.timestamp }}]</strong>
+                                        {% else %}
+                                            {{ message.whensent }} - {{ message.timestamp }}
+                                        {% endif %}
+                                </em></small></td>
+                            </tr>
+                    {% endfor %}
+                {% endif %}
+              </table>
+
+        </div>
+        </div>
+    </div>
+{% endblock %}
