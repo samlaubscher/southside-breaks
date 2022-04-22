@@ -39,7 +39,7 @@
               {% if request.user.is_authenticated %}
                 <span class="my-0 px-3">user: {{ user }}</span>
                 <a href="{% url 'messages' %}" class="my-0 px-3" style="text-decoration:none;color:#2cac05;">
-                  Inbox(<strong>{{ unread.count }}</strong>)
+                  <i class="fas fa-envelope"></i> (<strong>{{ unread.count }}</strong>)
                 </a>
                 <a href="{% url 'account_logout' %}" class="my-0 px-3" style="text-decoration:none;color:#2cac05;">Logout</a>
               {% else %}
