@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock page_header %}
+
+{% block content %}
+    <div class="container h-100">
+      <div class="row">
+        <div class="col-6">
+          
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-12 col-lg-8 offset-lg-2 mt-5">
+
+            <a href="{% url 'reply_to_message' direct_message.id %}" style="float:right;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">Reply</a>
+            <a href="{% url 'messages' %}" style="float:left;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">< Back to inbox</a>
+            
+            <table style="width:100%;">
+                
+                <tr style="background-color:#0c545e54;border-color: white;border-width: 1px;">
+                
+                  <td class="px-2 text-center" style="width:50%;">
+                    <span class="text-muted">From: </span>{{ direct_message.sender }} 
+                    {% if direct_message.sender.is_superuser %}
+                      <small class="mb-0" style="font-size:11px;color:#de6a0b;vertical-align:text-top;"><em>[Admin]</em></small>
+                    {% else %}
+                    <small class="mb-0" style="font-size:11px;color:#ccc616;vertical-align:text-top;"><em>[Member]</em></small>
+                    {% endif %}
+                  </td>
+                  
+                  <td class="text-center">
+                    <small class="text-muted"><em>{{ direct_message.whensent }} [{{ direct_message.timestamp }}]</em></small>
+                  </td>
+                <tr style="background-color:#0c545e54;border-color: white;border-width: 1px;">
+
+                    <td colspan="3" class="p-2" style="width:80%;">
+                        <div style="min-height:100px;padding:5px">
+                        {{ direct_message.body | linebreaks }}
+                      </div>
+                    </td>
+                 
+
+                </tr>
+
+                  
+                   
+                     </td>
+                </tr>
+              </table>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

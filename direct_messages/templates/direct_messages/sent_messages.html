@@ -13,17 +13,17 @@
     <div class="container h-100">
         <div class="row">
           <div class="col-8 offset-2">
-              <h2 class="text-center my-3">Inbox</h2>
+              <h2 class="text-center my-3">Sent Messages</h2>
           </div>
           <div class="col-12 col-lg-8 offset-lg-2">
 
             <a href="{% url 'send_message' %}" style="float:right;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">Send new message</a>
-            <a href="{% url 'sent_messages' %}" style="float:left;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">View sent messages</a>
+            <a href="{% url 'messages' %}" style="float:left;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">< Back to inbox</a>
             <table style="width:100%;">
                 <tr>
                   <th class="text-center">Message</th>
-                  <th class="text-center" style="width:25%;">From</th>
-                  <th class="text-center">Date recieved</th>
+                  <th class="text-center" style="width:25%;">Sent to</th>
+                  <th class="text-center">Date sent</th>
                 </tr>
 
                 {% if not direct_messages %}
@@ -44,28 +44,16 @@
                         {% endif %}
                                 <td class="px-2">
                                     <a href="{% url 'view_message' message.id %}" class="thread-link">
-                                        {% if not message.read %}
-                                            <strong style="color:#88ed88">> {{ message.body|truncatechars:20 }}</strong>
-                                        {% else %}
-                                            > {{ message.body|truncatechars:20 }}
-                                        {% endif %}
+                                        > {{ message.body|truncatechars:20 }}
                                     </a>
                                 </td>
                                 <td class="px-2 text-center">
                                     <a href="{% url 'view_message' message.id %}" class="thread-link">
-                                        {% if not message.read %}
-                                            <strong style="color:#88ed88">{{ message.sender }}</strong>
-                                        {% else %}
-                                            {{ message.sender }}
-                                        {% endif %}
+                                        {{ message.receiver }}
                                     </a>
                                 </td>
                                 <td class="px-2 text-center"><small><em>
-                                    {% if not message.read %}
-                                            <strong style="color:#88ed88">{{ message.whensent }} [{{ message.timestamp }}]</strong>
-                                        {% else %}
-                                            {{ message.whensent }} - {{ message.timestamp }}
-                                        {% endif %}
+                                    {{ message.whensent }} [{{ message.timestamp }}]
                                 </em></small></td>
                             </tr>
                     {% endfor %}
