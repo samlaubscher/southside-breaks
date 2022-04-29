@@ -47,6 +47,8 @@ INSTALLED_APPS = [
 
     'home',
     'direct_messages',
+    'threads',
+    'comments',
 ]
 
 MIDDLEWARE = [

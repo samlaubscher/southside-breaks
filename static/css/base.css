@@ -3,7 +3,59 @@ html {
 }
 
 body {
-    background-color: rgb(14, 14, 14);
-    /* background-image: url("../../media/overlapping-hexagons.svg"); */
+    background-color: black;
+    background-image: url("../../media/circuit-board.svg");
     color: #2cac05;
 }
+
+.text-green {
+    color: #2cac05;
+}
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+table, th, td {
+    border: 1px solid rgb(0, 0, 0)!important;
+    border-collapse: collapse;
+    height: 40px;
+}
+
+th {
+    background-color: #0b5a6481;
+}
+
+.td {
+    background-color: #07373d80;
+}
+
+.thread-link {
+    text-decoration: none;
+    color: #2cac05;
+}
+
+.thread-link:hover {
+    color: #79c063;
+}
+
+.hidden {
+    display: none;
+}
+
+.box {
+    display: none;
+    
+}
+
+#trigger {
+    display: none;
+}
+
+#trigger:checked + .box {
+    display: block;
+  }
