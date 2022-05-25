@@ -12,12 +12,21 @@
     {% endblock %}
 
     {% block corecss %}
-      <!-- Bootstrap -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
       <!-- Font Awesome -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+      <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+        />
       <!-- Google Fonts -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton:400|Archivo+Black|Kanit:ital,wght@0,200;0,300;0,500;0,600;1,500&display=swap">
+      <link
+        href="https://fonts.googleapis.com/css?family=Kanit&Roboto:300,400,500,700&display=swap"
+        rel="stylesheet"
+      />
+      <!-- MDB -->
+      <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+        rel="stylesheet"
+      />
       <link rel="icon" href="{{ MEDIA_URL }}favicon.ico">
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
@@ -28,39 +37,147 @@
     <title>Southside Breaks {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-      <header class="container-fluid">
-        <div class="row">
-          <div class="navbar">
-            <a href="{% url 'home' %}" class="nav-logo">
-              <img src="{{ MEDIA_URL }}main-logo.png" alt="Logo" id="main-nav-logo" width="125" height="125">
-              <span class="text-green logo-font my-0"></span>
-            </a>
-            <ul class="list-unstyled text-end my-0">
-              {% if request.user.is_authenticated %}
-                <span class="my-0 px-3"><i class="fas fa-user-circle"></i> {{ user }}</span>
-                <a href="{% url 'messages' %}" class="my-0 px-3" style="text-decoration:none;color:#2cac05;">
-                  <i class="fas fa-envelope"></i> (<strong>{{ unread.count }}</strong>)
+      <header>
+        <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+              <!-- Toggle button -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="fas fa-bars"></i>
+              </button>
+
+              <!-- Collapsible wrapper -->
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Navbar brand -->
+                <a class="navbar-brand m-0 mt-lg-0 position-absolute start-50 translate-middle-x p-0">
+                  <img
+                    src="{{ MEDIA_URL }}main-logo.png"
+                    height="110"
+                    alt="MDB Logo"
+                    loading="lazy"
+                    class="m-0"
+                  />
                 </a>
-                <a href="{% url 'account_logout' %}" class="my-0 px-3" style="text-decoration:none;color:#2cac05;">Logout</a>
-              {% else %}
-                <a href="{% url 'account_login' %}" class="my-0 px-3" style="text-decoration:none;color:#2cac05;">Login</a>
-                <a href="{% url 'account_signup' %}" class="my-0 px-3" style="text-decoration:none;color:#2cac05">Sign Up</a>
-              {% endif %}
-            </ul>
-          </div>
-        </div>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Record Label</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'threads' %}">Forum</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li>
+                </ul>
+                <!-- Left links -->
+              </div>
+              <!-- Collapsible wrapper -->
+
+              <!-- Right elements -->
+              <div class="d-flex align-items-center">
+                {% if request.user.is_authenticated %}
+                  <!-- Notifications -->
+                  <div class="dropdown">
+                    <a
+                      class="dropdown-toggle hidden-arrow my-0 px-3 nav-icon"
+                      href="#"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      data-mdb-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i class="fas fa-bell"></i>
+                    </a>
+                    <ul
+                      class="dropdown-menu dropdown-menu-end"
+                      aria-labelledby="navbarDropdownMenuLink"
+                    >
+                      <li>
+                        <a class="dropdown-item" href="#">Some news</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Another news</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Messages -->
+                  <a href="{% url 'messages' %}" class="nav-icon my-0 px-3" style="text-decoration:none;">
+                    <i class="fas fa-envelope"></i>
+                    {% if unread.count > 0 %}
+                    <span class="badge rounded-pill badge-notification bg-danger">{{ unread.count }}</span>
+                    {% endif %}
+                  </a>
+                  <!-- Avatar -->
+                  <div class="dropdown">
+                    <a
+                      class="dropdown-toggle d-flex align-items-center hidden-arrow nav-icon"
+                      href="#"
+                      id="navbarDropdownMenuAvatar"
+                      role="button"
+                      data-mdb-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <span class="text-reset my-0 px-3"><i class="fas fa-user-circle"></i> {{ user }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                      <li>
+                        <a class="dropdown-item" href="#">My profile</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Settings</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                      </li>
+                {% else %}
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
+                    </li>
+                  </ul>
+                {% endif %}
+                  </ul>
+                </div>
+              </div>
+              <!-- Right elements -->
+            </div>
+            <!-- Container wrapper -->
+          </nav>
+          <!-- Navbar -->
+
+          <div class="cover"></div>
+
+
       </header>
 
       {% if messages %}
         <div class="message-container">
           {% for message in messages %}
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-12">
-                  <div class="text-center" style="background-color: #24242447;color:#f8eeee;">
-                    {{ message }}
-                  </div>
-                </div>
+            <div class="col-12">
+              <div class="text-center" style="background-color: #ffffff17;color:#f8eeee;">
+                {{ message }}
               </div>
             </div>
             {% endfor %}
@@ -72,6 +189,39 @@
 
       {% block content %}
       {% endblock %}
-        
+      
+      <footer class="container mt-3">
+        <div class="row">
+
+          <!--- Social icons -->
+          <div class="text-reset col-12 text-center">
+              <div class="social-links">
+                  <!-- Facebook -->
+                  <a class="px-3 text-reset" href="https://www.facebook.com" target="_blank" rel="noopener">
+                      <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <!-- Twitter -->
+                  <a class="px-3 text-reset" href="https://www.twitter.com" target="_blank" rel="noopener">
+                      <i class="fab fa-twitter"></i>
+                  </a>
+                  <!--Instagram-->
+                  <a class="px-3 text-reset" href="https://www.instagram.com" target="_blank" rel="noopener">
+                      <i class="fab fa-instagram"></i>
+                  </a>
+              </div>
+              <!--- Copyright info and company name -->
+              <p class="">© 2022 | Southside Breaks</p>
+          </div>
+        </div>
+    </footer>
+
+    {% block postloadjs %}
+      <!-- MDB -->
+      <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
+      ></script>
+    {% endblock %}
+
   </body>
 </html>
