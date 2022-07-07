@@ -4,14 +4,23 @@ from django.utils import timezone
 import math
 
 
-class GuestMix(models.Model):
-    artist = models.CharField(max_length=70, blank=False, null=False)
-    description = models.TextField(max_length=5000, blank=False, null=False)
-    number = models.IntegerField(max_length=4, blank=False, null=False)
-    artist_link = models.URLField(max_length=150, null=True, blank=True)
-    soundcloud_mix_link = models.URLField(max_length=150, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+class Blog(models.Model):
+    title = models.CharField(max_length=300, blank=False, null=False)
+    subtitle_one = models.CharField(max_length=300, blank=True, null=True)
+    subtitle_two = models.CharField(max_length=300, blank=True, null=True)
+    subtitle_three = models.CharField(max_length=300, blank=True, null=True)
+    body_one = models.TextField(max_length=5000, blank=False, null=False)
+    body_two = models.TextField(max_length=5000, blank=True, null=True)
+    body_three = models.TextField(max_length=5000, blank=True, null=True)
+    body_four = models.TextField(max_length=5000, blank=True, null=True)
+    main_image_url = models.URLField(max_length=1024, null=True, blank=True)
+    main_image = models.ImageField(null=True, blank=True)
+    image_two_url = models.URLField(max_length=1024, null=True, blank=True)
+    image_two = models.ImageField(null=True, blank=True)
+    image_three_url = models.URLField(max_length=1024, null=True, blank=True)
+    image_three = models.ImageField(null=True, blank=True)
+    image_four_url = models.URLField(max_length=1024, null=True, blank=True)
+    image_four = models.ImageField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     posted_by = models.ForeignKey(User, blank=False, null=False, on_delete=models.CASCADE)
 

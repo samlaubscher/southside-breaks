@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'events',
     'guest_mixes',
     'label_releases',
+    'blogs',
 ]
 
 MIDDLEWARE = [
