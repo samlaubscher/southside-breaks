@@ -34,7 +34,7 @@
     {% block extra_css %}
     {% endblock %}
 
-    <title>Southside Breaks {% block extra_title %}{% endblock %}</title>
+    <title>{% block extra_title %}{% endblock %} Southside Breaks</title>
   </head>
   <body>
       <header>
@@ -108,7 +108,7 @@
                         <a class="dropdown-item" href="{% url 'guest_mixes' %}">Guest Mixes</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">Record Label</a>
+                        <a class="dropdown-item" href="{% url 'releases' %}">Record Label</a>
                       </li>
                       <li>
                         <a class="dropdown-item" href="#">Interviews</a>
@@ -128,7 +128,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li>
-                        <a class="dropdown-item" href="#">Meet The Team</a>
+                        <a class="dropdown-item" href="{% url 'team_members' %}">Meet The Team</a>
                       </li>
                       <li>
                         <a class="dropdown-item" href="#">Contact</a>
@@ -136,7 +136,7 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
+                    <a class="nav-link" href="{% url 'blogs' %}">Blog</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'threads' %}">Forum</a>

@@ -15,7 +15,7 @@ def all_releases(request):
         'releases': releases,
     }
 
-    return render(request, 'label_releases/label_releases.html', context)
+    return render(request, 'label_releases/releases.html', context)
 
 
 def view_release(request, release_id):

@@ -23,7 +23,7 @@ def view_blog(request, blog_id):
     
     blog = get_object_or_404(Blog, pk=blog_id)
 
-    template = 'blogs/blog.html'
+    template = 'blogs/view_blog.html'
 
     context = {
         'blog': blog,
