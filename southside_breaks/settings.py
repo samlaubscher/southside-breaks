@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'comments',
     'events',
     'guest_mixes',
+    'label_releases',
 ]
 
 MIDDLEWARE = [

@@ -1,26 +1,28 @@
 from django import forms
-from .models import GuestMix
+from .models import LabelRelease
 from crispy_forms.helper import FormHelper
 from django.forms import ModelChoiceField
 
 
-class GuestMixForm(forms.ModelForm):
-    """ Full new guest mix form """
+class LabelReleaseForm(forms.ModelForm):
+    """ Full new label release form """
 
     class Meta:
-        model = GuestMix
+        model = LabelRelease
         fields = [
             'artist',
             'description',
             'number',
+            'release_date',
             'artist_link',
-            'soundcloud_mix_link',
+            'soundcloud_link',
+            'beatport_link',
             'image_url',
             'image',
         ]
     
     def __init__(self, *args, **kwargs):
-        super(GuestMixForm, self).__init__(*args, **kwargs)
+        super(LabelReleaseForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_show_labels = True
         self.fields['artist'].widget.attrs.update(style='width:100%;font-size:15px;background-color:#ffffff17;color:#ade1ad;')

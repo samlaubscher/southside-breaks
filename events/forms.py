@@ -19,7 +19,7 @@ class EventForm(forms.ModelForm):
             'facebook_link',
             'set_times',
             'image_url',
-            'posted_by',
+            'image',
         ]
     
     def __init__(self, *args, **kwargs):

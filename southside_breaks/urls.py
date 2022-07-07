@@ -26,5 +26,6 @@ urlpatterns = [
     path('forum/', include('threads.urls')),
     path('events/', include('events.urls')),
     path('guest-mixes/', include('guest_mixes.urls')),
+    path('label_releases/', include('label_releases.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
