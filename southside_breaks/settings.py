@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'direct_messages',
     'threads',
     'comments',
+    'events',
 ]
 
 MIDDLEWARE = [

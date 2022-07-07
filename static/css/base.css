@@ -3,8 +3,8 @@ html {
 }
 
 body {
-    background-color: rgb(22, 33, 33);
-    color: #fafafa;
+    background-color: #f7f7f7;
+    color: #1b1b1b;
     font-family: 'Kanit', sans-serif;
 }
 
@@ -70,7 +70,7 @@ th {
 }
 
 .nav-icon {
-    color: hsla(0,0%,100%,.55);
+    color: rgba(36, 36, 36, 0.55);
 }
 
 .cover {
@@ -78,4 +78,8 @@ th {
     height: 300px;
     background-image: linear-gradient(rgba(0,0,0, 0.3) 30%,rgba(22,33,33, 1) 100%), url("../../media/sunset.jpg");
     background-size: cover;
+}
+
+.top-page-padding {
+    height: 130px;
 }
