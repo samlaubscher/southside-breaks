@@ -9,13 +9,13 @@ from datetime import datetime
 def all_events(request):
     """ A view to return all events """
 
-    events = Event.objects.all()
+    events = Event.objects.all().order_by('-event_date')
 
     context = {
         'events': events,
     }
 
-    return render(request, 'threads/threads.html', context)
+    return render(request, 'events/events.html', context)
 
 
 def view_event(request, event_id):

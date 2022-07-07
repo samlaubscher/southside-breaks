@@ -72,17 +72,72 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Events</a>
+
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      data-mdb-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Events
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li>
+                        <a class="dropdown-item" href="{% url 'events' %}">Our Events</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Event Pictures</a>
+                      </li>
+                    </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Record Label</a>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      data-mdb-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Music
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li>
+                        <a class="dropdown-item" href="#">Guest Mixes</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Record Label</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Interviews</a>
+                      </li>
+                    </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'threads' %}">Forum</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      data-mdb-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Team
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li>
+                        <a class="dropdown-item" href="#">Meet The Team</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Contact</a>
+                      </li>
+                    </ul>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'threads' %}">Forum</a>
+                    </li>
                   </li>
                 </ul>
                 <!-- Left links -->
