@@ -20,7 +20,7 @@ class Event(models.Model):
 
 
     class Meta:
-        ordering = ['-timestamp']
+        ordering = ['-event_date']
 
     def __str__(self):
         return self.title

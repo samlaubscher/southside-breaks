@@ -17,7 +17,7 @@ class GuestMix(models.Model):
 
 
     class Meta:
-        ordering = ['-timestamp']
+        ordering = ['number']
 
     def __str__(self):
         return self.number

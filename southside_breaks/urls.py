@@ -28,5 +28,6 @@ urlpatterns = [
     path('guest-mixes/', include('guest_mixes.urls')),
     path('label_releases/', include('label_releases.urls')),
     path('blogs/', include('blogs.urls')),
+    path('meet_the_team/', include('meet_the_team.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

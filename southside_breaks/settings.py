@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'guest_mixes',
     'label_releases',
     'blogs',
+    'meet_the_team',
 ]
 
 MIDDLEWARE = [

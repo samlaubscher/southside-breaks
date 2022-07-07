@@ -29,7 +29,7 @@ class Blog(models.Model):
         ordering = ['-timestamp']
 
     def __str__(self):
-        return self.number
+        return self.title
     
     def whenpublished(self):
         now = timezone.now()
