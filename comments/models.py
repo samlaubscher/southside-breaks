@@ -13,6 +13,7 @@ class Comment(models.Model):
     body = models.TextField(max_length=600, blank=False, null=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
+
     class Meta:
         ordering = ['timestamp']
 

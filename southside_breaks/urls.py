@@ -29,5 +29,5 @@ urlpatterns = [
     path('label_releases/', include('label_releases.urls')),
     path('blogs/', include('blogs.urls')),
     path('meet_the_team/', include('meet_the_team.urls')),
-
+    path('event_photos/', include('event_photos.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'label_releases',
     'blogs',
     'meet_the_team',
+    'event_photos',
 ]
 
 MIDDLEWARE = [
