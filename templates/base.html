@@ -106,7 +106,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li>
-                        <a class="dropdown-item" href="#">Guest Mixes</a>
+                        <a class="dropdown-item" href="{% url 'guest_mixes' %}">Guest Mixes</a>
                       </li>
                       <li>
                         <a class="dropdown-item" href="#">Record Label</a>
@@ -227,11 +227,26 @@
 
       </header>
 
+      <!-- Preloader -->
+      <div class="row loader">
+        <div class="col-md-12">
+            <div class="preloader1">
+                <div class="loader loader-inner-1">
+                    <div class="loader loader-inner-2">
+                        <div class="loader loader-inner-3">
+                        </div>
+                    </div>
+                  </div>
+                  <h2 class="text-white">LOADING</h2>
+              </div>
+          </div>
+      </div>
+
       {% if messages %}
         <div class="message-container">
           {% for message in messages %}
             <div class="col-12">
-              <div class="text-center" style="background-color: #5f5a5a5e;color:#1a1a1a;">
+              <div class="text-center">
                 {{ message }}
               </div>
             </div>
@@ -251,16 +266,16 @@
           <!--- Social icons -->
           <div class="text-reset col-12 text-center">
               <div class="social-links">
+                  <!-- Soundcloud -->
+                  <a class="px-3 text-reset" href="https://www.soundcloud.com/southside-breaks" target="_blank" rel="noopener">
+                    <i class="fab fa-soundcloud"></i>
+                  </a>
                   <!-- Facebook -->
-                  <a class="px-3 text-reset" href="https://www.facebook.com" target="_blank" rel="noopener">
+                  <a class="px-3 text-reset" href="https://www.facebook.com/southsidebreaks" target="_blank" rel="noopener">
                       <i class="fab fa-facebook-f"></i>
                   </a>
-                  <!-- Twitter -->
-                  <a class="px-3 text-reset" href="https://www.twitter.com" target="_blank" rel="noopener">
-                      <i class="fab fa-twitter"></i>
-                  </a>
                   <!--Instagram-->
-                  <a class="px-3 text-reset" href="https://www.instagram.com" target="_blank" rel="noopener">
+                  <a class="px-3 text-reset" href="https://www.instagram.com/southside_breaks" target="_blank" rel="noopener">
                       <i class="fab fa-instagram"></i>
                   </a>
               </div>
@@ -276,6 +291,8 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
       ></script>
+      <!-- Custom Scripts -->
+    <script src="{% static 'js/script.js' %}"></script>
     {% endblock %}
 
   </body>

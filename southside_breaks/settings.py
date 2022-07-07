@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'threads',
     'comments',
     'events',
+    'guest_mixes',
 ]
 
 MIDDLEWARE = [
