@@ -7,7 +7,7 @@ body {
     color: #1b1b1b;
     font-family: 'Kanit', sans-serif;
     height: 100vh;
-    background-image: url("../../media/waves.svg");
+    background-image: url("../../mediaa/waves.svg");
     background-size:cover;
     background-repeat: no-repeat;
 }
@@ -24,6 +24,11 @@ body {
     backdrop-filter: blur(9px);
 }
 
+.test-box {
+    height: 100px;
+    width: 100%;
+    background-color: black;
+}
 
 .icon {
     align-items: center;
@@ -81,7 +86,7 @@ th {
 .nav-icon,
 .nav-item {
     color: rgba(22, 22, 22, 0.938);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .cover {
@@ -101,6 +106,14 @@ th {
 
 .card-img-top {
     border-radius: 1.5%;
+}
+
+.event-flyer-card {
+    height: 500px;
+}
+
+.blog-image-card {
+    height: 300px;
 }
 
 /* preloader - https://bootsnipp.com/snippets/GaeVl */
