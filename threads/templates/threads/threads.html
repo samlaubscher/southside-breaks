@@ -29,31 +29,39 @@
                   <th class="text-center">Posted By</th>
                   <th class="text-center">Date Posted</th>
                 </tr>
-                {% for thread in threads %}
-                    {% if forloop.counter|divisibleby:2 %}    
-                        <tr style="background-color:#0947472c;">
-                    {% else %}
-                    <tr style="background-color:#07373d5b;">
-                    {% endif %}
-                            <td class="px-2">
-                                <a href="{% url 'view_thread' thread.id %}" class="thread-link">
-                                    {{ thread.title }}
-                                </a>
-                            </td>
-                            <td class="px-2 text-center">
-                                <a href="{% url 'view_thread' thread.id %}" class="thread-link">
-                                    {{ thread.comment.count }}
-                                </a>
-                            </td>
-                            <td class="px-2 text-center">{{ thread.topic.get_friendly_name }}</td>
-                            <td class="px-2 text-center"><small>{{ thread.user }}</small></td>
-                            <td class="px-2 text-center"><small><em>{{ thread.timestamp }}</em></small></td>
-                        </tr>
-                {% endfor %}
+                {% if not threads %}
+                    </table>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <hr>
+                            <p class="text-center text-muted ">Looks a bit empty here! Start the conversation by creating a new thread</p>
+                            <hr>
+                        </div>
+                    </div>
+                {% else %}
+                    {% for thread in threads %}
+                        {% if forloop.counter|divisibleby:2 %}    
+                            <tr style="background-color:#0947472c;">
+                        {% else %}
+                        <tr style="background-color:#07373d5b;">
+                        {% endif %}
+                                <td class="px-2">
+                                    <a href="{% url 'view_thread' thread.id %}" class="thread-link">
+                                        {{ thread.title }}
+                                    </a>
+                                </td>
+                                <td class="px-2 text-center">
+                                    <a href="{% url 'view_thread' thread.id %}" class="thread-link">
+                                        {{ thread.comment.count }}
+                                    </a>
+                                </td>
+                                <td class="px-2 text-center">{{ thread.topic.get_friendly_name }}</td>
+                                <td class="px-2 text-center"><small>{{ thread.user }}</small></td>
+                                <td class="px-2 text-center"><small><em>{{ thread.timestamp }}</em></small></td>
+                            </tr>
+                    {% endfor %}
+                {% endif %}
               </table>
-
-
-
         </div>
         </div>
     </div>
