@@ -185,7 +185,6 @@
                   </a>
                   <!-- Admin page -->
                   {% if request.user.is_superuser %}
-                      <!-- Messages -->
                       <a href="{% url 'admin:index' %}" class="nav-icon my-0 px-3" style="text-decoration:none;">
                         <i class="fas fa-screwdriver-wrench"></i>
                       </a>
@@ -213,6 +212,10 @@
                         <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                       </li>
                 {% else %}
+                  <!-- Report a Bug -->
+                  <a href="#" class="nav-icon my-0 px-3" style="text-decoration:none;">
+                    <i class="fas fa-bug"></i>
+                  </a>
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                       <a class="nav-link" href="{% url 'account_login' %}">Login</a>

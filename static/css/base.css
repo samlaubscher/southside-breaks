@@ -7,6 +7,9 @@ body {
     color: #1b1b1b;
     font-family: 'Kanit', sans-serif;
     height: 100vh;
+    background-image: url("../../media/moving-svg.svg");
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
 .top-padding {
@@ -16,6 +19,11 @@ body {
 .text-green {
     color: #2cac05;
 }
+
+.navbar {
+    backdrop-filter: blur(5px);
+}
+
 
 .icon {
     align-items: center;
@@ -71,7 +79,7 @@ th {
 }
 
 .nav-icon {
-    color: rgba(36, 36, 36, 0.55);
+    color: rgba(247, 245, 245, 0.55);
 }
 
 .cover {

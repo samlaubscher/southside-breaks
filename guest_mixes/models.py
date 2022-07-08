@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -7,7 +8,7 @@ import math
 class GuestMix(models.Model):
     artist = models.CharField(max_length=70, blank=False, null=False)
     description = models.TextField(max_length=5000, blank=False, null=False)
-    number = models.IntegerField(max_length=4, blank=False, null=False)
+    number = models.DecimalField(max_digits=4, decimal_places=0, blank=False, null=False)
     artist_link = models.URLField(max_length=150, null=True, blank=True)
     soundcloud_mix_link = models.URLField(max_length=150, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
@@ -18,6 +19,7 @@ class GuestMix(models.Model):
 
     class Meta:
         ordering = ['number']
+        verbose_name_plural = 'Guest Mixes'
 
     def __str__(self):
         return self.number

@@ -7,7 +7,7 @@ import math
 class LabelRelease(models.Model):
     artist = models.CharField(max_length=70, blank=False, null=False)
     description = models.TextField(max_length=5000, blank=False, null=False)
-    number = models.IntegerField(max_length=5, blank=False, null=False)
+    number = models.DecimalField(max_digits=3, decimal_places=0, blank=False, null=False)
     release_date = models.DateField(blank=True, null=True)
     artist_link = models.URLField(max_length=150, null=True, blank=True)
     soundcloud_link = models.URLField(max_length=150, null=True, blank=True)
