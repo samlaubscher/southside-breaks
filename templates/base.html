@@ -183,6 +183,13 @@
                     <span class="badge rounded-pill badge-notification bg-danger">{{ unread.count }}</span>
                     {% endif %}
                   </a>
+                  <!-- Admin page -->
+                  {% if request.user.is_superuser %}
+                      <!-- Messages -->
+                      <a href="{% url 'admin:index' %}" class="nav-icon my-0 px-3" style="text-decoration:none;">
+                        <i class="fas fa-screwdriver-wrench"></i>
+                      </a>
+                  {% endif %}
                   <!-- Avatar -->
                   <div class="dropdown">
                     <a
