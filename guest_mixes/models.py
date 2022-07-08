@@ -11,6 +11,7 @@ class GuestMix(models.Model):
     number = models.DecimalField(max_digits=4, decimal_places=0, blank=False, null=False)
     artist_link = models.URLField(max_length=150, null=True, blank=True)
     soundcloud_mix_link = models.URLField(max_length=150, null=True, blank=True)
+    soundcloud_iframe_code = models.CharField(max_length=1000, blank=True, null=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -22,7 +23,7 @@ class GuestMix(models.Model):
         verbose_name_plural = 'Guest Mixes'
 
     def __str__(self):
-        return self.number
+        return self.artist
     
     def whenpublished(self):
         now = timezone.now()

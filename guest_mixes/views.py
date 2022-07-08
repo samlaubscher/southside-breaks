@@ -18,20 +18,6 @@ def all_guest_mixes(request):
     return render(request, 'guest_mixes/guest_mixes.html', context)
 
 
-def view_guest_mix(request, guest_mix_id):
-    """ A view to view a guest mix """
-    
-    guest_mix = get_object_or_404(GuestMix, pk=guest_mix_id)
-
-    template = 'guest_mixes/view_guest_mix.html'
-
-    context = {
-        'guest_mix': guest_mix,
-    }
-
-    return render(request, template, context)
-
-
 def create_guest_mix(request):
     """ A view to create a guest_mix """
 

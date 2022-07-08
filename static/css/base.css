@@ -7,7 +7,7 @@ body {
     color: #1b1b1b;
     font-family: 'Kanit', sans-serif;
     height: 100vh;
-    background-image: url("../../media/moving-svg.svg");
+    background-image: url("../../media/waves.svg");
     background-size:cover;
     background-repeat: no-repeat;
 }
@@ -21,7 +21,7 @@ body {
 }
 
 .navbar {
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(9px);
 }
 
 
@@ -78,8 +78,10 @@ th {
     top: -7px!important;
 }
 
-.nav-icon {
-    color: rgba(247, 245, 245, 0.55);
+.nav-icon,
+.nav-item {
+    color: rgba(22, 22, 22, 0.938);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .cover {
@@ -93,6 +95,13 @@ th {
     height: 130px;
 }
 
+.guest-mix-card {
+    flex-direction: row;
+}
+
+.card-img-top {
+    border-radius: 1.5%;
+}
 
 /* preloader - https://bootsnipp.com/snippets/GaeVl */
 

@@ -12,53 +12,59 @@
 {% endblock page_header %}
 
 {% block content %}
-    <div class="container h-100">
+    <div class="container">
         <div class="row">
             <div class="col-8 offset-2">
-                <h2 class="text-center my-3">Events</h2>
+                <h2 class="text-center my-3">Guest Mixes</h2>
             </div>
             <div class="col-12 text-center">
-
-
                 <div class="row">
                     {% for gm in guest_mixes %}
-                        <div class="col-sm-6 col-md-6 col-lg-4">
-                            <div class="card h-100 border-0">
-                                {% if gm.image %}
-                                    <a href="{% url 'view_guest_mix' gm.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ gm.image.url }}" alt="{{ gm.artist }}">
-                                    </a>
-                                {% else %}
-                                    <a href="{% url 'view_guest_mix' gm.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ gm.image_url }}" alt="{{ gm.artist }}">
-                                    </a>
-                                {% endif %}
-                                <div class="card-body pb-0">
-                                    <a class="product-card-name" href="{% url 'view_guest_mix' gm.id %}">
-                                        <p class="mb-0">{{ gm.artist }}</p>
-                                    </a>
-                                    <a class="product-card-name" href="{% url 'view_guest_mix' gm.id %}">
-                                        <p class="mb-0">Guest Mix #{{ gm.number }}</p>
-                                    </a>
+                        <div class="col-12 m-auto">
+                            <div class="card h-100 border-0 guest-mix-card mb-5">
+                                {% if forloop.counter|divisibleby:2 %}
+                                <div class="col-5 m-auto">
+                                    {% if gm.image %}
 
+                                            <img class="card-img-top img-fluid " src="{{ gm.image.url }}" alt="{{ gm.artist }}">
+                                       
+                                    {% else %}
+                                      
+                                            <img class="card-img-top img-fluid " src="{{ gm.image_url }}" alt="{{ gm.artist }}">
+                                       
+                                    {% endif %}
                                 </div>
+                                <div class="col-7 m-auto">
+                                    <div class="card-body pb-0">
+                                        <h2 class="mb-0">{{ gm.artist }}</h2>
+                                        <h4 class="mb-0">Guest Mix #0{{ gm.number }}</h4>
+                                        <p>{{gm.description}}</p>
+                                        {{ gm.soundcloud_iframe_code|safe }}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="col-7 m-auto">
+                                    <div class="card-body pb-0">
+                                        <h2 class="mb-0">{{ gm.artist }}</h2>
+                                        <h4 class="mb-0">Guest Mix #0{{ gm.number }}</h4>
+                                        <p>{{gm.description}}</p>
+                                        {{ gm.soundcloud_iframe_code|safe }}
+                                    </div>
+                                </div>
+                                <div class="col-5 m-auto">
+                                    {% if gm.image %}
+                                    
+                                            <img class="card-img-top img-fluid" src="{{ gm.image.url }}" alt="{{ gm.artist }}">
+                                 
+                                    {% else %}
+                                 
+                                            <img class="card-img-top img-fluid" src="{{ gm.image_url }}" alt="{{ gm.artist }}">
+                                  
+                                    {% endif %}
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
