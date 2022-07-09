@@ -3,13 +3,17 @@ html {
 }
 
 body {
-    background-color: #f7f7f7;
-    color: #1b1b1b;
+    background-color: #ddd;
+    color: #080808;
     font-family: 'Kanit', sans-serif;
     height: 100vh;
-    background-image: url("../../mediaa/waves.svg");
+    background-image: url("../../media/black.svg");
     background-size:cover;
     background-repeat: no-repeat;
+}
+
+.header-style {
+    font-family: 'Russo One', sans-serif;
 }
 
 .top-padding {
@@ -25,9 +29,10 @@ body {
 }
 
 .test-box {
+    margin-top: 200px;
     height: 100px;
     width: 100%;
-    background-color: black;
+    background-color: #080808;
 }
 
 .icon {
@@ -38,18 +43,25 @@ body {
     width: 1.5rem;
 }
 
+.btn {
+    background-color: #080808;
+    border:1px solid #ddd;
+    color:#ddd;
+}
+
 table, th, td {
-    border: 1px solid rgb(0, 0, 0)!important;
+    border: 1px solid #080808!important;
     border-collapse: collapse;
     height: 40px;
 }
 
 th {
-    background-color: #0b5a6481;
+    background-color: #2e2e2ee7;
+    color: #ddd;
 }
 
 .td {
-    background-color: #07373d80;
+    background-color: #3b3b3b80;
 }
 
 .thread-link {
@@ -84,9 +96,14 @@ th {
 }
 
 .nav-icon,
-.nav-item {
-    color: rgba(22, 22, 22, 0.938);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+.nav-item,
+.nav-link {
+    color: rgba(255, 255, 255, 0.75)!important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
 }
 
 .cover {
@@ -97,7 +114,7 @@ th {
 }
 
 .top-page-padding {
-    height: 130px;
+    height: 100px;
 }
 
 .guest-mix-card {
@@ -114,6 +131,17 @@ th {
 
 .blog-image-card {
     height: 300px;
+}
+
+footer {
+    background-image: url("../../media/footer.svg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.footer-padding {
+    height: 150px;
 }
 
 /* preloader - https://bootsnipp.com/snippets/GaeVl */

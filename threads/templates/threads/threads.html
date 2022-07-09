@@ -4,65 +4,59 @@
 {% block extra_title %}Forum |{% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+    FORUM
 {% endblock page_header %}
 
 {% block content %}
     <div class="container h-100">
         <div class="row">
-          <div class="col-8 offset-2">
-              <h2 class="text-center my-3">All Threads</h2>
-          </div>
-          <div class="col-12">
-
-            <a href="{% url 'create_thread' %}" style="float:right;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">Create new post</a>
-            <a href="{% url 'create_thread' %}" style="float:right;border-color:#ade1ad;color:#ade1ad;" class="btn btn-sm m-2">View all topics</a>
-            <table style="width:100%;">
-                <tr>
-                  <th class="text-center" style="width:40%;">Title</th>
-                  <th class="text-center">Replies</th>
-                  <th class="text-center">Topic</th>
-                  <th class="text-center">Posted By</th>
-                  <th class="text-center">Date Posted</th>
-                </tr>
-                {% if not threads %}
-                    </table>
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <hr>
-                            <p class="text-center text-muted ">Looks a bit empty here! Start the conversation by creating a new thread</p>
-                            <hr>
-                        </div>
-                    </div>
-                {% else %}
-                    {% for thread in threads %}
-                        {% if forloop.counter|divisibleby:2 %}    
-                            <tr style="background-color:#0947472c;">
+            <div class="col-12">
+                <div class="card d-block p-2">
+                    <a href="{% url 'create_thread' %}" style="float:right;" class="btn btn-sm m-2">Create new post</a>
+                    <a href="{% url 'create_thread' %}" style="float:right;" class="btn btn-sm m-2">View all topics</a>
+                    <table style="width:100%;">
+                        <tr>
+                        <th class="text-center" style="width:40%;">Title</th>
+                        <th class="text-center">Replies</th>
+                        <th class="text-center">Topic</th>
+                        <th class="text-center">Posted By</th>
+                        <th class="text-center">Date Posted</th>
+                        </tr>
+                        {% if not threads %}
+                            </table>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <hr>
+                                    <p class="text-center text-muted ">Looks a bit empty here! Start the conversation by creating a new thread</p>
+                                    <hr>
+                                </div>
+                            </div>
                         {% else %}
-                        <tr style="background-color:#07373d5b;">
+                            {% for thread in threads %}
+                                {% if forloop.counter|divisibleby:2 %}    
+                                    <tr style="background-color:#0947472c;">
+                                {% else %}
+                                <tr style="background-color:#07373d5b;">
+                                {% endif %}
+                                        <td class="px-2">
+                                            <a href="{% url 'view_thread' thread.id %}" class="thread-link">
+                                                {{ thread.title }}
+                                            </a>
+                                        </td>
+                                        <td class="px-2 text-center">
+                                            <a href="{% url 'view_thread' thread.id %}" class="thread-link">
+                                                {{ thread.comment.count }}
+                                            </a>
+                                        </td>
+                                        <td class="px-2 text-center">{{ thread.topic.get_friendly_name }}</td>
+                                        <td class="px-2 text-center"><small>{{ thread.user }}</small></td>
+                                        <td class="px-2 text-center"><small><em>{{ thread.timestamp }}</em></small></td>
+                                    </tr>
+                            {% endfor %}
                         {% endif %}
-                                <td class="px-2">
-                                    <a href="{% url 'view_thread' thread.id %}" class="thread-link">
-                                        {{ thread.title }}
-                                    </a>
-                                </td>
-                                <td class="px-2 text-center">
-                                    <a href="{% url 'view_thread' thread.id %}" class="thread-link">
-                                        {{ thread.comment.count }}
-                                    </a>
-                                </td>
-                                <td class="px-2 text-center">{{ thread.topic.get_friendly_name }}</td>
-                                <td class="px-2 text-center"><small>{{ thread.user }}</small></td>
-                                <td class="px-2 text-center"><small><em>{{ thread.timestamp }}</em></small></td>
-                            </tr>
-                    {% endfor %}
-                {% endif %}
-              </table>
-        </div>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
