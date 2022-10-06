@@ -134,10 +134,10 @@ th {
 }
 
 footer {
-    background-image: url("../../media/footer.svg");
+    /* background-image: url("../../media/footer.svg");
     background-size:cover;
-    background-repeat: no-repeat;
-    color: white;
+    background-repeat: no-repeat; */
+    color: black;
 }
 
 .footer-padding {
